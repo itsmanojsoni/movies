@@ -91,7 +91,7 @@ public class MovieAdapter extends
         holder.movieOverview.setText(item.getOverview());
 
 //        GlideApp.with(context).load("http://goo.gl/gEgYUd").into(holder.posterImage);
-        String url = "https://image.tmdb.org/t/p/w1280"+ item.getPosterPath();
+        String url = "https://image.tmdb.org/t/p/w342"+ item.getPosterPath();
         Log.d(TAG, "The url is : "+url);
         Glide.with(context).load(url).into(holder.posterImage);
 

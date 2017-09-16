@@ -6,18 +6,21 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MovieAdapter.OnItemClickListener {
 
 
     private static  final String TAG = "MainActivity";
     // TODO - insert your themoviedb.org API KEY here
     private final static String API_KEY = "7e8f60e325cd06e164799af1e317d7a7";
+
+    private List<Movie> movies = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.movies_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        final MovieAdapter movieAdapter = new MovieAdapter(getApplicationContext(),this);
+
+        recyclerView.setAdapter(movieAdapter);
+
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
@@ -36,11 +43,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
                 int statusCode = response.code();
-                List<Movie> movies = response.body().getResults();
+                movies = response.body().getResults();
 
                 Log.d(TAG, "Movie List Size = "+movies.size());
-
-//                recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext()));
+                movieAdapter.setData(movies);
+                movieAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -49,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, t.toString());
             }
         });
+
+    }
+
+    @Override
+    public void onItemClick(int position) {
 
     }
 }

@@ -103,7 +103,12 @@ public class MovieAdapter extends
             Log.d(TAG, "Landscape url is : "+url);
         }
 
-        Glide.with(context).load(url).into(holder.posterImage);
+        Glide.with(context)
+                .load(url)
+                .placeholder(R.mipmap.placeholder)
+                .dontTransform()
+                .dontAnimate()
+                .into(holder.posterImage);
 
         //Todo: Setup viewholder for item 
         holder.bind(item, onItemClickListener);

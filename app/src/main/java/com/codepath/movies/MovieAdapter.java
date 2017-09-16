@@ -91,9 +91,7 @@ public class MovieAdapter extends
         holder.movieTitle.setText(item.getTitle());
         holder.movieOverview.setText(item.getOverview());
 
-//        GlideApp.with(context).load("http://goo.gl/gEgYUd").into(holder.posterImage);
         String url = null;
-
 
         int orientation = context.getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
@@ -101,13 +99,11 @@ public class MovieAdapter extends
             Log.d(TAG, "Portrait url is : "+url);
             // ...
         } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            url = "https://image.tmdb.org/t/p/w342"+ item.getBackdrop_path();
+            url = "https://image.tmdb.org/t/p/w1280"+ item.getBackdrop_path();
             Log.d(TAG, "Landscape url is : "+url);
-
         }
 
         Glide.with(context).load(url).into(holder.posterImage);
-
 
         //Todo: Setup viewholder for item 
         holder.bind(item, onItemClickListener);

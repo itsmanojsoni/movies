@@ -1,6 +1,7 @@
 package com.codepath.movies;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.provider.ContactsContract;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -91,8 +92,20 @@ public class MovieAdapter extends
         holder.movieOverview.setText(item.getOverview());
 
 //        GlideApp.with(context).load("http://goo.gl/gEgYUd").into(holder.posterImage);
-        String url = "https://image.tmdb.org/t/p/w342"+ item.getPosterPath();
-        Log.d(TAG, "The url is : "+url);
+        String url = null;
+
+
+        int orientation = context.getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            url = "https://image.tmdb.org/t/p/w342"+ item.getPosterPath();
+            Log.d(TAG, "Portrait url is : "+url);
+            // ...
+        } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            url = "https://image.tmdb.org/t/p/w342"+ item.getBackdrop_path();
+            Log.d(TAG, "Landscape url is : "+url);
+
+        }
+
         Glide.with(context).load(url).into(holder.posterImage);
 
 

@@ -26,4 +26,11 @@ public class Movie {
     String title;
     @SerializedName("overview")
     String overview;
+
+    public String getBackdrop_path() {
+        return backdrop_path;
+    }
+
+    @SerializedName("backdrop_path")
+    String backdrop_path;
 }

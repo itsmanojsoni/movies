@@ -99,7 +99,7 @@ public class MovieAdapter extends
             Log.d(TAG, "Portrait url is : "+url);
             // ...
         } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            url = "https://image.tmdb.org/t/p/w640"+ item.getBackdrop_path();
+            url = "https://image.tmdb.org/t/p/w1280"+ item.getBackdrop_path();
             Log.d(TAG, "Landscape url is : "+url);
         }
 

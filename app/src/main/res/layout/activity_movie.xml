@@ -1,51 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.codepath.movies.MovieActivity">
+    android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/movieImage"
+        android:id="@+id/movieDetailImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/movieTitle"
+        android:id="@+id/movieDetailTitle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/movieImage"/>
+        android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/rating"
+        android:id="@+id/movieDetailRating"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/movieTitle"/>
+        android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/popularity"
+        android:id="@+id/movieDetailPopularity"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rating"/>
-
-
-    <LinearLayout
-        android:id="@+id/genre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/popularity">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
+        android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/movieOverview"
+        android:id="@+id/movieDetailGenre"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/genre"/>
-</RelativeLayout>
+        android:layout_height="wrap_content">
+    </TextView>
+
+    <TextView
+        android:id="@+id/movieDetailOverview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

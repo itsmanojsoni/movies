@@ -4,11 +4,9 @@ package com.codepath.movies;
  * Created by manoj on 9/15/17.
  */
 
-
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.gson.annotations.SerializedName;
+
+
 public class Movie {
 
     public String getPosterPath() {
@@ -29,6 +27,23 @@ public class Movie {
     String title;
     @SerializedName("overview")
     String overview;
+
+    @SerializedName("popularity")
+    double popularity;
+
+    @SerializedName("vote_average")
+    double rating;
+
+
+    public double getPopularity() {
+        return popularity;
+    }
+
+
+    public double getRating() {
+        return rating;
+    }
+
 
     public int getId() {
         return id;

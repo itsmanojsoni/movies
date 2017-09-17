@@ -8,6 +8,8 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,8 +36,8 @@ public class MovieDetailActivity extends AppCompatActivity {
     private String title;
     private String genre;
     private String description;
-    private String popularity;
-    private String rating;
+    private double popularity;
+    private double rating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,14 @@ public class MovieDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_movie);
 
         Log.d(TAG, "onCreate Movie Detail Acitivity");
+
+        movieImage = (ImageView) findViewById(R.id.movieDetailImage);
+        movieTitle = (TextView) findViewById(R.id.movieDetailTitle);
+        movieGenre = (TextView) findViewById(R.id.movieDetailGenre);
+        movieDescription = findViewById(R.id.movieDetailOverview);
+        moviePopularity = findViewById(R.id.movieDetailPopularity);
+        movieRating = findViewById(R.id.movieDetailRating);
+
 
         Intent intent = getIntent();
 
@@ -60,12 +70,13 @@ public class MovieDetailActivity extends AppCompatActivity {
                 Log.d(TAG, "status code is : "+statusCode);
 
                 url = response.body().getBackdrop_path();
-
-                String title = response.body().getTitle();
+                title = response.body().getTitle();
+                description = response.body().getOverview();
+                rating = response.body().getRating();
+                popularity = response.body().getPopularity();
 
                 Log.d(TAG, "The Movie Title = "+title);
                 Log.d(TAG, "The Movie Url = "+url);
-
 
             }
             @Override
@@ -80,7 +91,19 @@ public class MovieDetailActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+       String imagePath = "https://image.tmdb.org/t/p/w1280"+ url;
 
+        Glide.with(this)
+                .load(imagePath)
+                .placeholder(R.mipmap.placeholder)
+                .dontTransform()
+                .dontAnimate()
+                .into(movieImage);
+
+        movieTitle.setText(title);
+        moviePopularity.setText(String.valueOf(popularity));
+        movieRating.setText(String.valueOf(rating));
+        movieDescription.setText(description);
 
     }
 

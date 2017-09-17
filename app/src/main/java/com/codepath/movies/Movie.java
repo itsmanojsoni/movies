@@ -30,12 +30,12 @@ public class Movie {
     @SerializedName("overview")
     String overview;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
     @SerializedName("id")
-    long id;
+    int id;
 
     public String getBackdrop_path() {
         return backdrop_path;

@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.OnIt
     // TODO - insert your themoviedb.org API KEY here
 //    private final static String API_KEY = "7e8f60e325cd06e164799af1e317d7a7";
 
-    private final static String API_KEY = "a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    public final static String API_KEY = "a07e22bc18f5cb106bfe4cc1f83ad8ed";
 
     private List<Movie> movies = new ArrayList<>();
 
@@ -67,13 +67,12 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.OnIt
 
     @Override
     public void onItemClick(int position) {
-
         Log.d(TAG, "onItem Clicked at Position = "+position);
-
         Intent intent = new Intent(this, MovieDetailActivity.class);
-        long message = movies.get(position).getId();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+        int id = movies.get(position).getId();
 
+        Log.d(TAG, "onITem Clicked id is : "+id);
+        intent.putExtra("movieId", id);
+        startActivity(intent);
     }
 }

@@ -5,6 +5,11 @@
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp">
 
+    <RelativeLayout
+        android:id="@+id/postImageContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
     <ImageView
         android:id="@+id/posterImage"
         android:layout_width="wrap_content"
@@ -13,6 +18,14 @@
         android:layout_marginTop="8dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/player_icon"
+            android:background="@color/playerIcon"/>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/movieDescription"
@@ -23,7 +36,7 @@
         android:layout_marginTop="8dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/posterImage"
+        android:layout_toRightOf="@+id/postImageContainer"
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
         android:orientation="vertical">

@@ -1,4 +1,4 @@
-package com.codepath.movies;
+package com.codepath.movies.model;
 
 /**
  * Created by manoj on 9/15/17.

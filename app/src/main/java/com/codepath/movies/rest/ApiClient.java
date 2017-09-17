@@ -1,4 +1,4 @@
-package com.codepath.movies;
+package com.codepath.movies.rest;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

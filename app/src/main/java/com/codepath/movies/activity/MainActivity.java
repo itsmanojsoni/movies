@@ -1,4 +1,4 @@
-package com.codepath.movies;
+package com.codepath.movies.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,13 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.EditText;
+
+import com.codepath.movies.rest.ApiClient;
+import com.codepath.movies.rest.ApiInterface;
+import com.codepath.movies.model.Movie;
+import com.codepath.movies.adapter.MovieAdapter;
+import com.codepath.movies.rest.MoviesResponse;
+import com.codepath.movies.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +20,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivity extends AppCompatActivity implements MovieAdapter.OnItemClickListener {
 

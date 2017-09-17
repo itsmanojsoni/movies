@@ -1,5 +1,6 @@
-package com.codepath.movies;
+package com.codepath.movies.rest;
 
+import com.codepath.movies.model.Movie;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;

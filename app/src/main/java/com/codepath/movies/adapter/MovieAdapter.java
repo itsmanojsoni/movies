@@ -1,8 +1,7 @@
-package com.codepath.movies;
+package com.codepath.movies.adapter;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.provider.ContactsContract;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,13 +11,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.codepath.movies.R;
+import com.codepath.movies.model.Movie;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
-
-import static com.codepath.movies.R.id.posterImage;
 
 /**
  * Created by manoj on 9/15/17.

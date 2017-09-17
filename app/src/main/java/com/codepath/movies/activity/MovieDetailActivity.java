@@ -1,8 +1,7 @@
-package com.codepath.movies;
+package com.codepath.movies.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -10,6 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.codepath.movies.rest.ApiClient;
+import com.codepath.movies.rest.ApiInterface;
+import com.codepath.movies.model.Movie;
+import com.codepath.movies.R;
 
 import java.text.DecimalFormat;
 
@@ -17,7 +20,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.codepath.movies.MainActivity.API_KEY;
+import static com.codepath.movies.activity.MainActivity.API_KEY;
 
 /**
  * Created by manoj on 9/16/17.

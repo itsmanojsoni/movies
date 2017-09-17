@@ -1,4 +1,6 @@
-package com.codepath.movies;
+package com.codepath.movies.rest;
+
+import com.codepath.movies.model.Movie;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

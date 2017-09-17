@@ -21,7 +21,8 @@
 
         <activity
             android:name="com.codepath.movies.MovieDetailActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

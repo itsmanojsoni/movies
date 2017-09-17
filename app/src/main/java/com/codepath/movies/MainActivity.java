@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.OnIt
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
-        Call<MoviesResponse> call = apiService.getTopRatedMovies(API_KEY);
+        Call<MoviesResponse> call = apiService.getLatestMovies(API_KEY);
         call.enqueue(new Callback<MoviesResponse>() {
             @Override
             public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
@@ -70,11 +70,11 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.OnIt
 
         Log.d(TAG, "onItem Clicked at Position = "+position);
 
-        Intent intent = new Intent(this, MovieDetailActivity.class);
-        EditText editText = (EditText) findViewById(R.id.editText);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+//        Intent intent = new Intent(this, MovieDetailActivity.class);
+//        EditText editText = (EditText) findViewById(R.id.editText);
+//        String message = editText.getText().toString();
+//        intent.putExtra(EXTRA_MESSAGE, message);
+//        startActivity(intent);
 
     }
 }

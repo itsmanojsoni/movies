@@ -5,8 +5,11 @@ package com.codepath.movies;
  */
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
-public class Movie {
+public class Movie implements Parcelable{
 
     public String getPosterPath() {
         return posterPath;
@@ -33,4 +36,14 @@ public class Movie {
 
     @SerializedName("backdrop_path")
     String backdrop_path;
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+
+    }
 }

@@ -9,7 +9,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
-public class Movie implements Parcelable{
+public class Movie {
 
     public String getPosterPath() {
         return posterPath;
@@ -30,6 +30,13 @@ public class Movie implements Parcelable{
     @SerializedName("overview")
     String overview;
 
+    public long getId() {
+        return id;
+    }
+
+    @SerializedName("id")
+    long id;
+
     public String getBackdrop_path() {
         return backdrop_path;
     }
@@ -37,13 +44,4 @@ public class Movie implements Parcelable{
     @SerializedName("backdrop_path")
     String backdrop_path;
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-
-    }
 }

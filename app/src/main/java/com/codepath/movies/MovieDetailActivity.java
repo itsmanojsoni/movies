@@ -16,7 +16,7 @@ public class MovieDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.d(TAG, "onCreate");
+        Log.d(TAG, "onCreate Movie Detail Acitivity");
 
     }
 

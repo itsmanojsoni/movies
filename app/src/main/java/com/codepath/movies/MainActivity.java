@@ -70,11 +70,10 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.OnIt
 
         Log.d(TAG, "onItem Clicked at Position = "+position);
 
-//        Intent intent = new Intent(this, MovieDetailActivity.class);
-//        EditText editText = (EditText) findViewById(R.id.editText);
-//        String message = editText.getText().toString();
-//        intent.putExtra(EXTRA_MESSAGE, message);
-//        startActivity(intent);
+        Intent intent = new Intent(this, MovieDetailActivity.class);
+        long message = movies.get(position).getId();
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
 
     }
 }

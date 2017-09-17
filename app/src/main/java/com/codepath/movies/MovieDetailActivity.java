@@ -126,11 +126,10 @@ public class MovieDetailActivity extends AppCompatActivity {
                         .dontAnimate()
                         .into(movieImage);
 
-                movieTitle.setText("Movie - " + title);
-                moviePopularity.setText("Populartity - " + popularity);
-                movieRating.setText("Rating - "+ rating);
+                movieTitle.setText(getResources().getString(R.string.Movie) + title);
+                moviePopularity.setText(getResources().getString(R.string.Popularity) + popularity);
+                movieRating.setText(getResources().getString(R.string.Rating)+ rating);
                 movieDescription.setText(description);
-
             }
             @Override
             public void onFailure(Call<Movie> call, Throwable t) {

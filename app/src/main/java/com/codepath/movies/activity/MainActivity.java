@@ -67,11 +67,8 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.OnIt
 
     @Override
     public void onItemClick(int position) {
-        Log.d(TAG, "onItem Clicked at Position = " + position);
         Intent intent = new Intent(this, MovieDetailActivity.class);
         int id = movies.get(position).getId();
-
-        Log.d(TAG, "onITem Clicked id is : " + id);
         intent.putExtra("movieId", id);
         startActivity(intent);
     }

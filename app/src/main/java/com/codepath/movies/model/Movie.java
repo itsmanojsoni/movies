@@ -9,18 +9,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class Movie {
 
-    public String getPosterPath() {
-        return posterPath;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getOverview() {
-        return overview;
-    }
-
     @SerializedName("poster_path")
     String posterPath;
     @SerializedName("original_title")
@@ -34,29 +22,32 @@ public class Movie {
     @SerializedName("vote_average")
     double rating;
 
-
-    public double getPopularity() {
-        return popularity;
-    }
-
-
-    public double getRating() {
-        return rating;
-    }
-
-
-    public int getId() {
-        return id;
-    }
+    @SerializedName("backdrop_path")
+    String backdrop_path;
 
     @SerializedName("id")
     int id;
 
+
+    public double getPopularity() {
+        return popularity;
+    }
+    public double getRating() {
+        return rating;
+    }
+    public int getId() {
+        return id;
+    }
     public String getBackdrop_path() {
         return backdrop_path;
     }
-
-    @SerializedName("backdrop_path")
-    String backdrop_path;
-
+    public String getPosterPath() {
+        return posterPath;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public String getOverview() {
+        return overview;
+    }
 }

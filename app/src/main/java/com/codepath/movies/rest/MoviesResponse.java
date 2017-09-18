@@ -17,14 +17,4 @@ public class MoviesResponse {
 
     @SerializedName("results")
     List<Movie> results;
-
-
-    public Movie getMovie() {
-        return movie;
-    }
-
-    Movie movie;
-
-
-
 }

@@ -50,16 +50,16 @@ public class MovieDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_movie);
 
-        movieImage =  findViewById(R.id.movieDetailImage);
+        movieImage = findViewById(R.id.movieDetailImage);
         movieTitle = findViewById(R.id.movieDetailTitle);
         movieDescription = findViewById(R.id.movieDetailOverview);
         moviePopularity = findViewById(R.id.movieDetailPopularity);
         movieRating = findViewById(R.id.movieDetailRating);
 
-        this.context = (Context)this;
+        this.context = (Context) this;
 
         Intent intent = getIntent();
-        this.id = intent.getIntExtra("movieId",0);
+        this.id = intent.getIntExtra("movieId", 0);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class MovieDetailActivity extends AppCompatActivity {
                 description = response.body().getOverview();
                 rating = new DecimalFormat("#.##").format(response.body().getRating());
                 popularity = new DecimalFormat("#.##").format(response.body().getPopularity());
-                String imagePath = "https://image.tmdb.org/t/p/w1280"+ url;
+                String imagePath = "https://image.tmdb.org/t/p/w1280" + url;
                 Glide.with(context)
                         .load(imagePath)
                         .placeholder(R.mipmap.placeholder)
@@ -87,16 +87,16 @@ public class MovieDetailActivity extends AppCompatActivity {
 
                 movieTitle.setText(getResources().getString(R.string.Movie) + title);
                 moviePopularity.setText(getResources().getString(R.string.Popularity) + popularity);
-                movieRating.setText(getResources().getString(R.string.Rating)+ rating);
+                movieRating.setText(getResources().getString(R.string.Rating) + rating);
                 movieDescription.setText(description);
             }
+
             @Override
             public void onFailure(Call<Movie> call, Throwable t) {
                 // Log error here since request failed
                 Log.e(TAG, t.toString());
             }
         });
-
 
     }
 

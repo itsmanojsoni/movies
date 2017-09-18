@@ -41,7 +41,6 @@ public class MovieAdapter extends
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        // Todo Butterknife bindings
          ImageView posterImage;
          TextView movieTitle;
          TextView movieOverview;
@@ -49,9 +48,9 @@ public class MovieAdapter extends
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            posterImage = (ImageView) itemView.findViewById(R.id.posterImage);
-            movieTitle = (TextView) itemView.findViewById(R.id.movieTitle);
-            movieOverview = (TextView) itemView.findViewById(R.id.movieOverview);
+            posterImage = itemView.findViewById(R.id.posterImage);
+            movieTitle = itemView.findViewById(R.id.movieTitle);
+            movieOverview = itemView.findViewById(R.id.movieOverview);
         }
 
         public void bind(final Movie model,
@@ -59,9 +58,7 @@ public class MovieAdapter extends
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d(TAG, "onClick in Movie Adapter");
                     listener.onItemClick(getLayoutPosition());
-
                 }
             });
         }
@@ -75,7 +72,6 @@ public class MovieAdapter extends
         View view = inflater.inflate(R.layout.movie_list_item, parent, false);
         ButterKnife.bind(this, view);
 
-
         ViewHolder viewHolder = new ViewHolder(view);
 
         return viewHolder;
@@ -86,8 +82,6 @@ public class MovieAdapter extends
     public void onBindViewHolder(ViewHolder holder, int position) {
         Movie item = list.get(position);
 
-        Log.d(TAG, "movie Title  = "+item.getTitle());
-
         holder.movieTitle.setText(item.getTitle());
         holder.movieOverview.setText(item.getOverview());
 
@@ -96,11 +90,8 @@ public class MovieAdapter extends
         int orientation = context.getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
             url = "https://image.tmdb.org/t/p/w342"+ item.getPosterPath();
-            Log.d(TAG, "Portrait url is : "+url);
-            // ...
         } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             url = "https://image.tmdb.org/t/p/w1280"+ item.getBackdrop_path();
-            Log.d(TAG, "Landscape url is : "+url);
         }
 
         Glide.with(context)
@@ -110,7 +101,6 @@ public class MovieAdapter extends
                 .dontAnimate()
                 .into(holder.posterImage);
 
-        //Todo: Setup viewholder for item 
         holder.bind(item, onItemClickListener);
     }
 
